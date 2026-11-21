@@ -394,3 +394,4 @@ export function TerminalDrawer({ isOpen, onClose, onSelectProject }: TerminalDra
     </div>
   );
 }
+
