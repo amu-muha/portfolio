@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --bg-color: #FAFAFB;
+  --text-color: #09090B;
+  --border-color: #E4E4E7;
+  --muted-color: #71717A;
+}
+
+html.dark {
+  --bg-color: #09090B;
+  --text-color: #F4F4F5;
+  --border-color: #1E2028;
+  --muted-color: #8E929F;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1E2028;
+  border-radius: 3px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #2D3139;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #D4D4D8;
+  border-radius: 3px;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #A1A1AA;
+}
+
+/* Hairline utilities */
+.border-hairline {
+  border-color: #E4E4E7;
+}
+html.dark .border-hairline {
+  border-color: #1E2028;
+}
+
+.divide-hairline > * + * {
+  border-color: #E4E4E7;
+}
+html.dark .divide-hairline > * + * {
+  border-color: #1E2028;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(16, 185, 129, 0.25);
+  color: inherit;
+}
