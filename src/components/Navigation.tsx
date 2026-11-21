@@ -94,3 +94,4 @@ export function Navigation({ onOpenTerminal }: NavigationProps) {
     </header>
   );
 }
+
