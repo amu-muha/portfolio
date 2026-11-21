@@ -316,3 +316,4 @@ function renderNordicArchitectureSvg(projectIndex: string) {
     </svg>
   );
 }
+
