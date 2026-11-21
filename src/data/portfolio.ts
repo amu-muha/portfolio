@@ -1,3 +1,11 @@
+export interface SkillItem {
+  name: string;
+  category: 'languages' | 'backend' | 'databases' | 'security';
+  iconKey: string;
+  brandColor: string;
+  proficiency?: string;
+}
+
 export interface ProjectArchitecture {
   nodes: { id: string; label: string; role: string; type: 'client' | 'service' | 'db' | 'cache' | 'gateway' | 'worker' }[];
   flows: { from: string; to: string; label: string; protocol?: string }[];
@@ -19,28 +27,23 @@ export interface Project {
   summary: string;
   highlights: string[];
   stack: string[];
+  cornerIcons: { name: string; brandColor: string }[];
   githubUrl: string;
-  projectUrl: string; // can be '#' or docs link
+  projectUrl: string;
   architecture: ProjectArchitecture;
-}
-
-export interface CVExperience {
-  role: string;
-  organization: string;
-  period: string;
-  location: string;
-  description: string;
-  achievements: string[];
 }
 
 export const PORTFOLIO_DATA = {
   personal: {
-    name: "Aymen Muhammed Seid",
-    handle: "aymen.muhammed",
+    name: "Aymen Muhammed",
+    fullName: "Aymen Muhammed Seid",
+    handle: "aymen.",
+    accentLetter: ".",
     role: "Backend Systems Engineer · API Architecture · Cybersecurity",
-    headline: "Resilient backend architectures, offline-first distributed sync engines, and hardened Linux infrastructure.",
+    headline: "Architecting resilient backend systems and secure infrastructure with engineering precision.",
     location: "Addis Ababa, Ethiopia",
     timezone: "UTC+3",
+    statusBadge: "AVAILABLE FOR BACKEND & SECURITY ROLES",
     statusText: "Available for Backend & Security Roles",
     bio: "I design and build resilient backend architectures, offline-first distributed sync engines, and hardened Linux infrastructure. Focused on Go, Node.js, Java, PostgreSQL, and offensive/defensive web security.",
     email: "arebumuha77@gmail.com",
@@ -51,6 +54,93 @@ export const PORTFOLIO_DATA = {
       linkedin: "https://linkedin.com/in/aymen-muhammed",
       email: "mailto:arebumuha77@gmail.com",
     },
+    typewriterRoles: [
+      "resilient backend systems",
+      "high-throughput APIs in Go & Node",
+      "offline-first sync engines",
+      "hardened Linux infrastructure",
+    ],
+  },
+
+  about: {
+    badge: "ABOUT",
+    title: "Philosophy & Passion.",
+    subheadline: "I don't just write endpoints. I architect fault-tolerant backend systems and secure infrastructure that balance performance with engineering precision.",
+    journeyTitle: "The Journey",
+    journeyText: [
+      "I am an Information Systems student at Addis Ababa University (AAU), specializing in backend software engineering, API architecture, and practical cybersecurity. Engineering software in Ethiopia provides an invaluable real-world perspective on physical infrastructure constraints: network volatility, latency spikes, and transient power drops. Rather than treating these as edge cases, I design systems that assume failure by default.",
+      "My core focus spans scalable services in Go, Node.js, and Java, crafting low-latency microservices with Chi, Fastify, and Express, fine-tuning connection pools in PostgreSQL and Redis, and architecting offline-first distributed sync engines that guarantee idempotent eventual consistency.",
+      "On the security front, I practice offensive vulnerability research across OWASP Top 10 vectors and defensive Linux hardening with Suricata IDS. I was awarded 1st Place in a competitive Hackathon (earning an invitation to IDEEZA Cohort 7 for Hardware & AI Development) and graduated from the UNDP, UN Technology Bank & ICPSD Frontier Tech Leaders Cybersecurity Training Track.",
+    ],
+    liveMetrics: [
+      { label: "LATENCY TARGET", value: "<15ms", color: "#34D399" },
+      { label: "SYNC CAPABILITY", value: "Offline-First", color: "#FBBF24" },
+      { label: "INFRASTRUCTURE", value: "Hardened Linux", color: "#38BDF8" },
+      { label: "TRANSACTION INTEGRITY", value: "Strict ACID", color: "#A78BFA" },
+    ],
+  },
+
+  skills: {
+    badge: "SKILLS",
+    title: "My Skills.",
+    subtitle: "Production-level experience engineering scalable backend architectures, databases, and secure Linux environments.",
+    categories: [
+      {
+        id: "languages",
+        label: "LANGUAGES",
+        skills: [
+          { name: "Go", brandColor: "#00ADD8", iconKey: "go" },
+          { name: "TypeScript", brandColor: "#3178C6", iconKey: "typescript" },
+          { name: "JavaScript", brandColor: "#F7DF1E", iconKey: "javascript" },
+          { name: "Java", brandColor: "#ED8B00", iconKey: "java" },
+          { name: "Dart", brandColor: "#0175C2", iconKey: "dart" },
+          { name: "C++", brandColor: "#00599C", iconKey: "cpp" },
+          { name: "Python", brandColor: "#3776AB", iconKey: "python" },
+          { name: "SQL", brandColor: "#E38C00", iconKey: "sql" },
+        ],
+      },
+      {
+        id: "backend",
+        label: "BACKEND & FRAMEWORKS",
+        skills: [
+          { name: "Node.js", brandColor: "#5FA04E", iconKey: "nodejs" },
+          { name: "Fastify", brandColor: "#000000", iconKey: "fastify" },
+          { name: "Express", brandColor: "#EEEEEE", iconKey: "express" },
+          { name: "Chi", brandColor: "#00ADD8", iconKey: "chi" },
+          { name: "Fiber", brandColor: "#00ADD8", iconKey: "fiber" },
+          { name: "Flutter", brandColor: "#02569B", iconKey: "flutter" },
+          { name: "React", brandColor: "#61DAFB", iconKey: "react" },
+          { name: "Next.js", brandColor: "#FFFFFF", iconKey: "nextjs" },
+        ],
+      },
+      {
+        id: "databases",
+        label: "DATABASES & CACHING",
+        skills: [
+          { name: "PostgreSQL", brandColor: "#4169E1", iconKey: "postgresql" },
+          { name: "PostGIS", brandColor: "#4169E1", iconKey: "postgis" },
+          { name: "Redis", brandColor: "#DC382D", iconKey: "redis" },
+          { name: "SQLite", brandColor: "#003B57", iconKey: "sqlite" },
+          { name: "Prisma", brandColor: "#2D3748", iconKey: "prisma" },
+          { name: "GORM", brandColor: "#00ADD8", iconKey: "gorm" },
+          { name: "IndexedDB", brandColor: "#F59E0B", iconKey: "indexeddb" },
+        ],
+      },
+      {
+        id: "security",
+        label: "SECURITY & DEVOPS",
+        skills: [
+          { name: "Linux (Ubuntu)", brandColor: "#E95420", iconKey: "linux" },
+          { name: "Docker", brandColor: "#2496ED", iconKey: "docker" },
+          { name: "Nginx", brandColor: "#009639", iconKey: "nginx" },
+          { name: "Git", brandColor: "#F05032", iconKey: "git" },
+          { name: "GitHub", brandColor: "#FFFFFF", iconKey: "github" },
+          { name: "Suricata IDS", brandColor: "#EF4444", iconKey: "suricata" },
+          { name: "Burp Suite", brandColor: "#FF6633", iconKey: "burpsuite" },
+          { name: "Swagger / OpenAPI", brandColor: "#85EA2D", iconKey: "swagger" },
+        ],
+      },
+    ],
   },
 
   projects: [
@@ -60,13 +150,19 @@ export const PORTFOLIO_DATA = {
       subtitle: "High-Throughput Distributed REST Commerce Engine",
       category: "Backend & Systems",
       status: "Production Ready",
-      summary: "High-throughput REST commerce engine featuring pgx connection pooling, versioned Goose migrations, Redis cache-aside invalidation, and OpenAPI/Swagger documentation.",
+      summary: "High-throughput REST commerce backend featuring pgx connection pooling, Goose schema migrations, Redis cache-aside invalidation, and OpenAPI/Swagger docs.",
+      cornerIcons: [
+        { name: "Go", brandColor: "#00ADD8" },
+        { name: "PostgreSQL", brandColor: "#4169E1" },
+        { name: "Redis", brandColor: "#DC382D" },
+        { name: "Docker", brandColor: "#2496ED" },
+      ],
       highlights: [
         "Configured robust pgx connection pool tuning (MaxConns: 50, MinConns: 10, MaxConnIdleTime: 5m) eliminating starvation during peak spikes",
         "Deterministic schema evolution with Goose versioned migrations executing within isolated transactions",
         "Sub-millisecond read path with Redis cache-aside caching pattern and atomic TTL expiration",
         "Structured logging with zap and RFC 7807 compliant problem-detail HTTP error payloads",
-        "Full OpenAPI 3.0 specification auto-generated for strict contract testing"
+        "Full OpenAPI 3.0 specification auto-generated for strict contract testing",
       ],
       stack: ["Go", "Chi", "PostgreSQL (pgx)", "Redis", "Goose", "Docker", "OpenAPI/Swagger"],
       githubUrl: "https://github.com/amu-muha/go-ecommerce-api",
@@ -116,13 +212,19 @@ export const PORTFOLIO_DATA = {
       subtitle: "Low-Latency Moderation Service & Prompt Defense Pipeline",
       category: "AI Infrastructure & Security",
       status: "Active Lab",
-      summary: "Low-latency Fastify moderation microservice wrapping the Google Gemini API with prompt-injection sanitization, token-bucket rate limiting, and Prisma ORM audit logging.",
+      summary: "Low-latency Fastify AI moderation microservice with prompt-injection sanitization, token-bucket rate limiting, and Prisma ORM audit logging.",
+      cornerIcons: [
+        { name: "Node.js", brandColor: "#5FA04E" },
+        { name: "Fastify", brandColor: "#FFFFFF" },
+        { name: "TypeScript", brandColor: "#3178C6" },
+        { name: "Prisma", brandColor: "#2D3748" },
+      ],
       highlights: [
         "Multi-stage sanitization defense against adversarial prompt injections and jailbreak escapes",
         "Deterministic content safety categorization with structured JSON schemas via Gemini 1.5 Flash",
         "Redis-backed sliding window rate limiter per API key with instantaneous 429 quota exhaustion headers",
         "Complete append-only audit trail persisting request hashes, safety scores, and latencies via Prisma",
-        "Under 420ms end-to-end evaluation latency with asynchronous streaming safety checks"
+        "Under 420ms end-to-end evaluation latency with asynchronous streaming safety checks",
       ],
       stack: ["Node.js", "Fastify", "TypeScript", "Prisma", "Gemini API", "PostgreSQL"],
       githubUrl: "https://github.com/amu-muha/veridix",
@@ -172,13 +274,19 @@ export const PORTFOLIO_DATA = {
       subtitle: "Geospatial Peer-to-Peer Energy Sharing Platform",
       category: "Geospatial & Distributed Systems",
       status: "Production Demo",
-      summary: "Peer-to-peer electric vehicle charging platform for Addis Ababa with PostGIS geospatial charger discovery, real-time Socket.IO telemetry, and Docker Compose orchestration.",
+      summary: "Peer-to-peer EV charging marketplace for Addis Ababa with PostGIS geospatial discovery, real-time Socket.IO telemetry, and Docker Compose orchestration.",
+      cornerIcons: [
+        { name: "Next.js", brandColor: "#FFFFFF" },
+        { name: "Node.js", brandColor: "#5FA04E" },
+        { name: "PostGIS", brandColor: "#4169E1" },
+        { name: "Socket.IO", brandColor: "#010101" },
+      ],
       highlights: [
         "PostGIS spatial indexing (ST_DWithin, GiST) querying nearest available chargers within custom radial thresholds in <5ms",
         "Bidirectional WebSocket telemetry via Socket.IO streaming live kilowatt-hour charging sessions and billing increments",
         "State-machine managed charging lifecycle: Available -> Reserved -> Energized -> Settled",
         "Role-based access control segregating host charger owners from EV drivers",
-        "Orchestrated with multi-stage Docker containers with environment-segregated network bridges"
+        "Orchestrated with multi-stage Docker containers with environment-segregated network bridges",
       ],
       stack: ["Next.js", "Node.js", "Express", "Socket.IO", "PostgreSQL + PostGIS", "Docker"],
       githubUrl: "https://github.com/m3sudx/AmpShare",
@@ -224,17 +332,23 @@ export const PORTFOLIO_DATA = {
     },
     {
       index: "04",
-      title: "Habeshan REMS — Offline-First Attendance & Sync Engine",
+      title: "Habeshan REMS — Offline-First Sync Engine",
       subtitle: "Idempotent Distributed Sync & Device Fingerprinting",
       category: "Distributed Sync & Offline-First",
       status: "Production Deployed",
-      summary: "Fault-tolerant attendance tracking and sync system built with client-side IndexedDB queuing, manual JSON backup exports, SHA-256 device fingerprinting, and idempotent Go/Fiber reconciliation.",
+      summary: "Fault-tolerant employee attendance system using IndexedDB (Dexie.js) offline queuing, manual JSON backup exports, SHA-256 device hashing, and Go/Fiber sync reconciliation.",
+      cornerIcons: [
+        { name: "Go", brandColor: "#00ADD8" },
+        { name: "React", brandColor: "#61DAFB" },
+        { name: "PostgreSQL", brandColor: "#4169E1" },
+        { name: "TypeScript", brandColor: "#3178C6" },
+      ],
       highlights: [
         "Client-side IndexedDB mutation queues using Dexie.js for 100% offline functionality in low-connectivity areas",
         "Deterministic SHA-256 device fingerprinting and client-generated UUIDv4 idempotency keys preventing replay duplication",
         "Go (Fiber) backend reconciliation engine processing batch sync payloads inside isolated database transactions",
         "Two-way conflict resolution engine leveraging logical vector clocks and server-authoritative timestamps",
-        "Manual air-gapped JSON export/import mechanism for disaster recovery across remote branch networks"
+        "Manual air-gapped JSON export/import mechanism for disaster recovery across remote branch networks",
       ],
       stack: ["Go (Fiber)", "PostgreSQL (GORM)", "React", "TypeScript", "Dexie.js", "SHA-256"],
       githubUrl: "https://github.com/amu-muha/habeshan-rems",
@@ -279,6 +393,12 @@ export const PORTFOLIO_DATA = {
       }
     }
   ] as Project[],
+
+  contact: {
+    title: "Let's Start a Conversation",
+    pitch: "Whether you have an engineering internship, a complex backend system to architect, or a security-focused project, I am ready to contribute.",
+    base: "Addis Ababa, Ethiopia (UTC+3)",
+  },
 
   cv: {
     education: {
@@ -366,4 +486,3 @@ export const PORTFOLIO_DATA = {
     },
   },
 };
-
