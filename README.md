@@ -1,71 +1,75 @@
-# Aymen Muhammed Seid — Engineering Portfolio
+# Aymen Muhammed Seid
 
-> Editorial software engineering portfolio for **Aymen Muhammed Seid**, Backend Systems Engineer & Cybersecurity Practitioner based in Addis Ababa, Ethiopia.
+Backend Systems Engineer & Cybersecurity Practitioner based in Addis Ababa, Ethiopia.  
+B.Sc. in Information Systems at Addis Ababa University (AAU).
 
-Designed with a modern editorial layout inspired by high-signal engineering portfolios (`leerob.com`, `paco.me`, `rauno.me`). Built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**, optimized for pure static edge deployment on **Vercel**.
-
----
-
-## ⚡ Architectural Highlights
-
-- **Strictly No Card Grids:** High-signal editorial layout structured with crisp `1px` hairline dividers (`#1E2028` dark / `#E4E4E7` light) and full-width interactive tabular rows.
-- **Slide-Over Architecture Drawer:** Clicking any project row opens a right-side drawer containing inline SVG system data-flow diagrams, architectural trade-offs, and deep-dive technical narratives.
-- **Interactive Terminal Environment (`~` or `Ctrl+K`):** Keyboard-accessible CLI modal supporting `whoami`, `projects`, `cv` (triggers instant PDF download), `security`, `contact`, and `clear`.
-- **Refined Obsidian Dark / Light Theme:** Obsidian dark mode (`#09090B` background, `#F4F4F5` text, `#8E929F` muted slate, `#10B981` emerald accent) with instant toggle and zero flash of unstyled content.
-- **Hardened Security Headers:** Strict Content Security Policy (CSP), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, and disabled `x-powered-by` header.
-- **Centralized Metadata Configuration (`src/data/portfolio.ts`):** Single point of configuration for personal details, projects, tech stacks, and credentials.
-- **Pure Static / Edge Frontend:** Zero backend servers, databases, or API routes. Ready for instant deployment on Vercel or Cloudflare Pages.
+- **GitHub:** [@amu-muha](https://github.com/amu-muha)
+- **LinkedIn:** [/in/aymen-muhammed](https://linkedin.com/in/aymen-muhammed)
+- **Email:** arebumuha77@gmail.com
+- **Website:** [aymenmuhammed.vercel.app](https://aymenmuhammed.vercel.app)
 
 ---
 
-## 🛠️ Tech Stack
+## About Me
 
-- **Framework:** [Next.js](https://nextjs.org/) (App Router, Static Pre-Rendering)
-- **Language:** [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Fonts:** Inter & JetBrains Mono
+I focus on backend systems architecture, API design, and web/infrastructure security. Most of my work centers around building services that remain reliable under real-world constraints—network volatility, high concurrency, and low latency requirements.
 
----
+Engineering software in Addis Ababa gives me a practical perspective on infrastructure. When connectivity drops or bandwidth fluctuates, a backend cannot simply throw a generic 500 or assume uninterrupted cloud round-trips. That environment drove my interest in offline-first architectures, distributed sync protocols with idempotent batch reconciliation, local mutation queuing, and hardened Linux infrastructure.
 
-## 📁 Project Structure
+On the security side, I practice both offensive analysis (vulnerability research on PortSwigger Web Security Academy, OWASP Juice Shop, and Burp Suite traffic inspection) and defensive hardening (Suricata IDS rule authoring on Ubuntu Linux, kernel tuning, and isolated container environments).
 
-```text
-├── public/
-│   └── Aymen_Muhammed_Seid_CV.pdf    # Direct downloadable resume PDF
-├── src/
-│   ├── app/
-│   │   ├── globals.css               # Hairline utility classes & dark/light CSS variables
-│   │   ├── layout.tsx                # Metadata, SEO tags & ThemeProvider
-│   │   └── page.tsx                  # Single-column editorial page
-│   ├── components/
-│   │   ├── ArchitectureDrawer.tsx    # Slide-over right drawer with custom inline SVGs
-│   │   ├── CVSection.tsx             # Education, hackathon wins & categorized skills
-│   │   ├── Footer.tsx                # Contact row, mailto, copy email & timezone status
-│   │   ├── Hero.tsx                  # Editorial bio, identity & primary action triggers
-│   │   ├── Navigation.tsx            # Sticky header, availability pulse, anchor links & theme toggle
-│   │   ├── ProjectRow.tsx            # Full-width interactive project rows (no cards)
-│   │   ├── SecurityLab.tsx           # 2-column offensive/defensive & algorithms lab
-│   │   ├── TerminalDrawer.tsx        # Keyboard-accessible CLI (~ or Ctrl+K)
-│   │   └── ThemeProvider.tsx         # Dark/Light theme state & local storage persistence
-│   └── data/
-│       └── portfolio.ts              # Centralized portfolio data, projects, & credentials
-├── next.config.ts                    # Strict security headers & Next.js config
-├── tailwind.config.ts                # Obsidian palette & animation keyframes
-├── tsconfig.json                     # Strict TypeScript compiler options
-└── package.json
-```
+### Core Technical Focus
+
+- **Languages:** Go, TypeScript, JavaScript (ES6+), Java, C++, Python, SQL
+- **Backend & Data:** Node.js (Fastify, Express), Go (Chi, Fiber), PostgreSQL, PostGIS, Redis, SQLite, Prisma, GORM
+- **Systems & Security:** Ubuntu Linux, Docker, Nginx, Suricata IDS, Burp Suite, OWASP Top 10, Git
+- **Foundations:** Relational data modeling, connection pool tuning (pgx), spatial indexing (GiST), information retrieval (BSBI / TF-IDF), and algorithmic problem solving
 
 ---
 
-## 🚀 Getting Started
+## Projects Featured in the Portfolio
 
-### Prerequisites
+The projects showcased in this repository highlight specific architectural decisions and trade-offs:
 
-- Node.js `v18+` or `v20+` (tested with v24)
-- npm, pnpm, or yarn
+1. **Go E-Commerce Backend API** ([Source](https://github.com/amu-muha/go-ecommerce-api))
+   - REST API built in Go using Chi and native `pgx/v5` connection pooling.
+   - Database migrations managed deterministically with Goose inside isolated transactions.
+   - Redis cache-aside invalidation for product catalog reads, structured Zap logging, and RFC 7807 problem details.
 
-### Installation
+2. **Veridix — AI Content Moderation Gateway** ([Source](https://github.com/amu-muha/veridix))
+   - Low-latency moderation microservice built on Fastify and TypeScript.
+   - Multi-layer defense against prompt injection and boundary escape attacks prior to LLM evaluation.
+   - Token-bucket rate limiting, structured schema classification via Gemini, and append-only Prisma audit logging.
+
+3. **AmpShare — P2P EV Charging Platform** ([Source](https://github.com/m3sudx/AmpShare))
+   - Peer-to-peer EV charging platform addressing charger discovery hurdles in Addis Ababa.
+   - PostGIS spatial indexing (`ST_DWithin`, GiST) for radial charger discovery within sub-5ms lookup windows.
+   - Bidirectional WebSocket telemetry (Socket.IO) for streaming live kilowatt-hour charging sessions and a strict charging finite state machine.
+
+4. **Habeshan REMS — Offline-First Attendance & Sync Engine** ([Source](https://github.com/amu-muha/habeshan-rems))
+   - Designed for low/intermittent connectivity campus environments.
+   - Client-side IndexedDB mutation queues (Dexie.js), SHA-256 device fingerprinting, and client-generated UUIDv4 idempotency tokens.
+   - Idempotent Go (Fiber) backend reconciliation with conflict resolution, vector clocks, and air-gapped JSON disaster recovery exports.
+
+---
+
+## About This Portfolio
+
+I built this portfolio to present technical work cleanly without the typical boxed-card templates that dominate developer websites.
+
+### Design Choices
+
+- **Editorial Tabular Layout:** Rather than repetitive cards, projects and lab work are laid out in high-density tabular rows separated by 1px hairline dividers (`#1E2028` dark / `#E4E4E7` light).
+- **Slide-Over Architecture Drawer:** Clicking any project row opens a slide-over panel containing custom inline SVG data-flow diagrams, system performance metrics, and detailed engineering trade-offs (Decision vs. Rationale vs. Compromise).
+- **Embedded Terminal (`~` or `Ctrl+K`):** A lightweight CLI modal with built-in commands (`whoami`, `projects`, `cv`, `security`, `contact`, `clear`) and history navigation.
+- **Strictly Static Edge Output:** Built using Next.js (App Router) without server-side API routes, databases, or runtime backend dependencies. Everything compiles down to static HTML/JS for zero-latency Vercel Edge delivery.
+- **Security Headers:** Enforced via `next.config.ts` (strict CSP, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`).
+
+---
+
+## Running Locally
+
+Clone and run the project locally:
 
 ```bash
 # Clone the repository
@@ -75,38 +79,21 @@ cd portfolio
 # Install dependencies
 npm install
 
-# Start development server
+# Run the dev server
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Production Build
+To verify the production build:
 
 ```bash
-# Build optimized static distribution
 npm run build
-
-# Start production preview server
 npm run start
 ```
 
 ---
 
-## 🌐 Deploy to Vercel
-
-1. Push this repository to your GitHub account:
-   ```bash
-   git remote add origin https://github.com/amu-muha/portfolio.git
-   git branch -M main
-   git push -u origin main
-   ```
-2. Import the repository into [Vercel](https://vercel.com/new).
-3. The default Next.js build settings (`npm run build`, output `.next`) will automatically detect the static export and deploy to the global edge network.
-
----
-
-## 📄 License
+## License
 
 MIT © [Aymen Muhammed Seid](https://github.com/amu-muha)
-
