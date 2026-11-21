@@ -407,3 +407,4 @@ function renderArchitectureSvg(projectIndex: string) {
     </svg>
   );
 }
+

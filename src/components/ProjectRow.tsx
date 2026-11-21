@@ -97,3 +97,4 @@ export function ProjectRow({ project, onSelect }: ProjectRowProps) {
     </div>
   );
 }
+
