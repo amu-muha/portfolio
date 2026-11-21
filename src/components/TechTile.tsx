@@ -227,3 +227,4 @@ function renderIcon(key: string, brandColor: string, size: number) {
     </span>
   );
 }
+
